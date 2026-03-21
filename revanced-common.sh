@@ -372,7 +372,7 @@ id=$MODULE_ID
 name=$MODULE_NAME
 version=${T_VERSION[$i]}
 versionCode=${T_VERSIONCODE[$i]}
-author=Shekhawat2
+author=blip9
 description=$MODULE_DESC
 updateJson=$MODULE_UPDATE_JSON
 EOF
@@ -470,7 +470,7 @@ RELEASE_CREATE_HTTP_CODE=
 
 create_release() {
     local release_num=$1
-    local url=https://api.github.com/repos/shekhawat2/RevancedYT/releases
+    local url=https://api.github.com/repos/blip9/RevancedYT/releases
     local response_file response_body upload_url message
 
     response_file=$(mktemp)
@@ -668,8 +668,9 @@ patch_apk_with_args() {
         -o "$output_apk" \
         --keystore="$CURDIR/revanced.keystore" \
         --keystore-password="$KEYSTORE_PASSWORD" \
-        --keystore-entry-alias=shekhawat2 \
+        --keystore-entry-alias=ReVanced \
         -p "$PATCHES" \
+        -d "Custom-branding"
         -b \
         --force \
         "$@" \
@@ -733,7 +734,7 @@ create_module_zips() {
 generate_update_json_files() {
     status "Generating update JSON files..."
     local release_base_url
-    release_base_url="https://github.com/shekhawat2/RevancedYT/releases/latest/download"
+    release_base_url="https://github.com/blip9/RevancedYT/releases/latest/download"
 
     for i in "${!T_PACKAGE[@]}"; do
         jq -n \
