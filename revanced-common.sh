@@ -82,8 +82,8 @@ init_java_env() {
 }
 
 init_keystore_env() {
-    if [ ! -f "$CURDIR/revanced.keystore" ]; then
-        error "Missing keystore file at $CURDIR/revanced.keystore"
+    if [ ! -f "$CURDIR/revanced-keystore.jks" ]; then
+        error "Missing keystore file at $CURDIR/revanced-keystore.jks"
         exit 1
     fi
 
@@ -372,7 +372,7 @@ id=$MODULE_ID
 name=$MODULE_NAME
 version=${T_VERSION[$i]}
 versionCode=${T_VERSIONCODE[$i]}
-author=Shekhawat2
+author=blip9
 description=$MODULE_DESC
 updateJson=$MODULE_UPDATE_JSON
 EOF
@@ -451,7 +451,7 @@ EOF
 generate_release_data() {
     jq -n \
         --arg tag_name "${RELEASE_SERIES}_v${1}" \
-        --arg target_commitish "master" \
+        --arg target_commitish "main" \
         --arg name "${RELEASE_TITLE_BASE}-${RELEASE_SERIES}-v${1}" \
         --rawfile body "$CURDIR/changelog.md" \
         --argjson draft "$DRAFT" \
@@ -470,7 +470,7 @@ RELEASE_CREATE_HTTP_CODE=
 
 create_release() {
     local release_num=$1
-    local url=https://api.github.com/repos/shekhawat2/RevancedYT/releases
+    local url=https://api.github.com/repos/blip9/RevancedYT/releases
     local response_file response_body upload_url message
 
     response_file=$(mktemp)
@@ -666,9 +666,10 @@ patch_apk_with_args() {
 
     java -jar "$CLI" patch --purge \
         -o "$output_apk" \
-        --keystore="$CURDIR/revanced.keystore" \
+        --keystore="$CURDIR/revanced-keystore.jks" \
         --keystore-password="$KEYSTORE_PASSWORD" \
-        --keystore-entry-alias=shekhawat2 \
+        --keystore-entry-alias=ReVanced \
+        --keystore-entry-password="$KEYSTORE_ENTRY_PASSWORD"\
         -p "$PATCHES" \
         -b \
         --force \
@@ -733,7 +734,7 @@ create_module_zips() {
 generate_update_json_files() {
     status "Generating update JSON files..."
     local release_base_url
-    release_base_url="https://github.com/shekhawat2/RevancedYT/releases/latest/download"
+    release_base_url="https://github.com/blip9/RevancedYT/releases/latest/download"
 
     for i in "${!T_PACKAGE[@]}"; do
         jq -n \
