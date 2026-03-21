@@ -49,7 +49,7 @@ add_target() {
     T_LABEL[$i]="$label"
     T_MODULE_DESC[$i]="${label} Module by @Shekhawat2"
     T_UPDATE_FILE[$i]="${apk_dir}update.json"
-    T_UPDATE_JSON[$i]="https://github.com/shekhawat2/RevancedYT/releases/latest/download/${apk_dir}update.json"
+    T_UPDATE_JSON[$i]="https://github.com/blip9/RevancedYT/releases/latest/download/${apk_dir}update.json"
     T_UNINSTALL_FIRST[$i]="$uninstall"
     T_FALLBACK_VERSION[$i]="$fallback"
     T_RESOLVED_VERSION[$i]=""
