@@ -670,7 +670,6 @@ patch_apk_with_args() {
         --keystore-password="$KEYSTORE_PASSWORD" \
         --keystore-entry-alias=ReVanced \
         -p "$PATCHES" \
-        -d "Custom-branding"
         -b \
         --force \
         "$@" \
