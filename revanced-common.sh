@@ -669,6 +669,7 @@ patch_apk_with_args() {
         --keystore="$CURDIR/revanced-keystore.jks" \
         --keystore-password="$KEYSTORE_PASSWORD" \
         --keystore-entry-alias=ReVanced \
+        --keystore-entry-password="$KEYSTORE_ENTRY_PASSWORD"\
         -p "$PATCHES" \
         -b \
         --force \
