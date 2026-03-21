@@ -82,8 +82,8 @@ init_java_env() {
 }
 
 init_keystore_env() {
-    if [ ! -f "$CURDIR/revanced.keystore" ]; then
-        error "Missing keystore file at $CURDIR/revanced.keystore"
+    if [ ! -f "$CURDIR/revanced-keystore.jks" ]; then
+        error "Missing keystore file at $CURDIR/revanced-keystore.jks"
         exit 1
     fi
 
