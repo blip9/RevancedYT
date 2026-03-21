@@ -666,7 +666,7 @@ patch_apk_with_args() {
 
     java -jar "$CLI" patch --purge \
         -o "$output_apk" \
-        --keystore="$CURDIR/revanced.keystore" \
+        --keystore="$CURDIR/revanced-keystore.jks" \
         --keystore-password="$KEYSTORE_PASSWORD" \
         --keystore-entry-alias=ReVanced \
         -p "$PATCHES" \
