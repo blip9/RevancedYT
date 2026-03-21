@@ -451,7 +451,7 @@ EOF
 generate_release_data() {
     jq -n \
         --arg tag_name "${RELEASE_SERIES}_v${1}" \
-        --arg target_commitish "master" \
+        --arg target_commitish "main" \
         --arg name "${RELEASE_TITLE_BASE}-${RELEASE_SERIES}-v${1}" \
         --rawfile body "$CURDIR/changelog.md" \
         --argjson draft "$DRAFT" \
